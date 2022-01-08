@@ -8,7 +8,9 @@ const express_1 = __importDefault(require("express"));
 const index_routes_1 = __importDefault(require("./routes/index.routes"));
 const app = (0, express_1.default)();
 // settings
-app.set("port", 3000);
+app.set("port", 4000);
+// middlewares
+app.use(express_1.default.json());
 //routes
-app.use("api/v1", index_routes_1.default);
+app.use("/api/v1", index_routes_1.default);
 exports.default = app;
