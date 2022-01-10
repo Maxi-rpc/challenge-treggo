@@ -8,12 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.login = void 0;
-const user_model_1 = require("../models/user.model");
-const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { email, password } = req.body;
-    const passHash = yield (0, user_model_1.encrypt)(password);
-    res.send("controller login: " + email + passHash);
+exports.encrypt = void 0;
+const bcrypt_1 = __importDefault(require("bcrypt"));
+const encrypt = (password) => __awaiter(void 0, void 0, void 0, function* () {
+    const salt = yield bcrypt_1.default.genSalt(10);
+    return bcrypt_1.default.hash(password, salt);
 });
-exports.login = login;
+exports.encrypt = encrypt;
