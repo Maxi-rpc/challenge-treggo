@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 
 export const getFilm = (req: Request, res: Response) => {
-	res.send("controller getFilm");
+	const film = req.params.character;
+	res.send("controller getFilm:" + film);
 };

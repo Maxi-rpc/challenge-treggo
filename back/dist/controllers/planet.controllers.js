@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPlanet = void 0;
 const getPlanet = (req, res) => {
-    res.send("controller getPlanet");
+    const planet = req.params.character;
+    res.send("controller getPlanet: " + planet);
 };
 exports.getPlanet = getPlanet;
