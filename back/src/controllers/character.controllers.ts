@@ -2,10 +2,14 @@ import { Request, Response } from "express";
 import { API_SWAPI } from "../services/index.services";
 
 export const getCharacter = async (req: Request, res: Response) => {
-  const charId = req.query.id;
-  const charName = req.query.name;
+  let data = {
+    message: "",
+    datos: {},
+  };
 
-  let data = await API_SWAPI.getPeop(charId, charName);
+  let { id, name } = req.query;
 
-  res.send("controller getCharacter: " + charId + charName + " " + data);
+  data.datos = await API_SWAPI.getPeop(id, name);
+
+  res.json(data);
 };

@@ -12,7 +12,7 @@ router.use("/test", testRoute);
 router.use("/login", userRoute);
 router.use("/favorite", favRoute);
 router.use("/character", charRoute);
-router.use("/planet", planetRoute);
-router.use("/film", filmRoute);
+//router.use("/planet", planetRoute);
+//router.use("/film", filmRoute);
 
 export default router;

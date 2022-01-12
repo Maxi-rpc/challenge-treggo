@@ -12,8 +12,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.login = void 0;
 const user_model_1 = require("../models/user.model");
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let data = {
+        message: "",
+        token: "",
+    };
+    let user = {
+        email: "",
+        password: "",
+        passHash: "",
+    };
     const { email, password } = req.body;
-    const passHash = yield (0, user_model_1.encrypt)(password);
-    res.send("controller login: " + email + passHash);
+    if (email === "" || password === "") {
+        data.message = "email y/o password no pueden estar vacíos.";
+    }
+    else {
+        user.email = email;
+        user.password = password;
+        user.passHash = yield (0, user_model_1.encrypt)(password);
+        data.message = "login correcto";
+    }
+    res.json(data);
 });
 exports.login = login;

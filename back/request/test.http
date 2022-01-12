@@ -1,0 +1,26 @@
+### Test route
+GET http://localhost:4000/api/v1/test
+
+### Post Login
+POST http://localhost:4000/api/v1/login
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "pass123"
+}
+
+### Post Favorite
+POST http://localhost:4000/api/v1/favorite
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "pass123"
+}
+
+### Delete Favorite
+DELETE  http://localhost:4000/api/v1/favorite
+
+### Get Character
+GET http://localhost:4000/api/v1/character?id=1

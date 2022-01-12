@@ -8,16 +8,27 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getCharacter = void 0;
-const index_services_1 = require("../services/index.services");
-const getCharacter = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    let data = {
-        message: "",
-        datos: {},
-    };
-    let { id, name } = req.query;
-    data.datos = yield index_services_1.API_SWAPI.getPeop(id, name);
-    res.json(data);
+exports.getPeople = void 0;
+const axios_1 = __importDefault(require("axios"));
+const API_URL = "https://www.swapi.tech/api/";
+const FILMS = "films/";
+const PEOPLE = "people/";
+const PLANETS = "planets/";
+const getPeople = (id = "", name = "") => __awaiter(void 0, void 0, void 0, function* () {
+    let data = {};
+    let search = "?name=";
+    yield axios_1.default
+        .get(API_URL + PEOPLE + search + name)
+        .then((resp) => {
+        data = resp.data;
+    })
+        .catch((error) => {
+        data = error;
+    });
+    return data;
 });
-exports.getCharacter = getCharacter;
+exports.getPeople = getPeople;
