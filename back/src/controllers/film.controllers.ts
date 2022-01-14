@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
+import { API_SWAPI } from "../services/index.services";
 
-export const getFilm = (req: Request, res: Response) => {
-	const film = req.params.character;
-	res.send("controller getFilm:" + film);
+export const getFilm = async (req: Request, res: Response) => {
+	//let { character } = req.query;
+	let data = await API_SWAPI.getFilm();
+	res.json(data);
 };

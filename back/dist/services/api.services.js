@@ -12,23 +12,51 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPeople = void 0;
+exports.getFilmByName = exports.getFilm = exports.getPlanet = exports.getPeople = void 0;
 const axios_1 = __importDefault(require("axios"));
 const API_URL = "https://www.swapi.tech/api/";
 const FILMS = "films/";
 const PEOPLE = "people/";
 const PLANETS = "planets/";
-const getPeople = (id = "", name = "") => __awaiter(void 0, void 0, void 0, function* () {
+const getAxios = (url) => __awaiter(void 0, void 0, void 0, function* () {
     let data = {};
-    let search = "?name=";
     yield axios_1.default
-        .get(API_URL + PEOPLE + search + name)
+        .get(url)
         .then((resp) => {
         data = resp.data;
     })
-        .catch((error) => {
-        data = error;
+        .catch((err) => {
+        data = err;
     });
     return data;
 });
+const getPeople = (id = "", name = "") => __awaiter(void 0, void 0, void 0, function* () {
+    let data = {};
+    let search = API_URL + PEOPLE;
+    if (name) {
+        search += "?name=" + name;
+    }
+    else if (id) {
+        search += id;
+    }
+    data = yield getAxios(search);
+    return data;
+});
 exports.getPeople = getPeople;
+const getPlanet = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    let people = yield (0, exports.getPeople)(id);
+    let data = yield getAxios(people.result.properties.homeworld);
+    return data;
+});
+exports.getPlanet = getPlanet;
+const getFilm = () => __awaiter(void 0, void 0, void 0, function* () {
+    let search = API_URL + FILMS;
+    let data = yield getAxios(search);
+    return data;
+});
+exports.getFilm = getFilm;
+const getFilmByName = (name) => {
+    let data = {};
+    return data;
+};
+exports.getFilmByName = getFilmByName;

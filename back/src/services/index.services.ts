@@ -1,5 +1,7 @@
-import { getPeople } from "./api.services";
+import { getPeople, getPlanet, getFilm } from "./api.services";
 
 export const API_SWAPI = {
-  getPeop: getPeople,
+	getPeop: getPeople,
+	getPlan: getPlanet,
+	getFilm: getFilm,
 };

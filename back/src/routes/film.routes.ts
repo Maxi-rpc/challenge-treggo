@@ -5,6 +5,6 @@ const router: Router = Router();
 // imp controller
 import { indexControllers } from "../controllers/index.controllers";
 
-router.get("/:character", indexControllers.getFilm);
+router.get("/", indexControllers.getFilm);
 
 export default router;

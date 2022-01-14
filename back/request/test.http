@@ -22,5 +22,17 @@ Content-Type: application/json
 ### Delete Favorite
 DELETE  http://localhost:4000/api/v1/favorite
 
-### Get Character
-GET http://localhost:4000/api/v1/character?id=1
+### Get Characters
+GET http://localhost:4000/api/v1/character
+
+### Get Character name
+GET http://localhost:4000/api/v1/character?name=Luke
+
+### Get Character id
+GET http://localhost:4000/api/v1/character?id=2
+
+### Get Planet by id people
+GET http://localhost:4000/api/v1/planet?character=1
+
+### Get Film by id people
+GET http://localhost:4000/api/v1/film?character=Luke

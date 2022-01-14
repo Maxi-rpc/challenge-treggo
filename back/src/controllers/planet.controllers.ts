@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
+import { API_SWAPI } from "../services/index.services";
 
-export const getPlanet = (req: Request, res: Response) => {
-	const planet = req.params.character;
-	res.send("controller getPlanet: " + planet);
+export const getPlanet = async (req: Request, res: Response) => {
+	let { character } = req.query;
+	const data = await API_SWAPI.getPlan(character);
+	res.json(data);
 };
