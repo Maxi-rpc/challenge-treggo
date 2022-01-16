@@ -1,0 +1,2 @@
+### Get Planet by id people
+GET http://localhost:4000/api/v1/planet?character=1

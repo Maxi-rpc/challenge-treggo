@@ -1,0 +1,8 @@
+### Get Characters
+GET http://localhost:4000/api/v1/character
+
+### Get Character name
+GET http://localhost:4000/api/v1/character?name=Luke
+
+### Get Character id
+GET http://localhost:4000/api/v1/character?id=2

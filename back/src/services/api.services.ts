@@ -44,8 +44,9 @@ export const getFilm = async () => {
 	return data;
 };
 
-export const getFilmByName = (name: string) => {
+export const getFilmByName = async (name: string) => {
 	let data = {};
-
+	let films = await getFilm();
+	data = films.result;
 	return data;
 };

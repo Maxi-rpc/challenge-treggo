@@ -55,8 +55,10 @@ const getFilm = () => __awaiter(void 0, void 0, void 0, function* () {
     return data;
 });
 exports.getFilm = getFilm;
-const getFilmByName = (name) => {
+const getFilmByName = (name) => __awaiter(void 0, void 0, void 0, function* () {
     let data = {};
+    let films = yield (0, exports.getFilm)();
+    data = films.result;
     return data;
-};
+});
 exports.getFilmByName = getFilmByName;
