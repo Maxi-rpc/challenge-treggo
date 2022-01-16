@@ -30,6 +30,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         user.password = password;
         user.passHash = yield (0, user_model_1.encrypt)(password);
         data.message = "login correcto";
+        data.token = (0, user_model_1.create_token)(user.email);
     }
     res.json(data);
 });

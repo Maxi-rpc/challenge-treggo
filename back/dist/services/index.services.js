@@ -6,4 +6,5 @@ exports.API_SWAPI = {
     getPeop: api_services_1.getPeople,
     getPlan: api_services_1.getPlanet,
     getFilm: api_services_1.getFilm,
+    getFilmByName: api_services_1.getFilmByName,
 };

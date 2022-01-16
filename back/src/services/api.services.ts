@@ -10,7 +10,7 @@ const getAxios = async (url: string) => {
 	await axios
 		.get(url)
 		.then((resp) => {
-			data = resp.data;
+			data = resp.data.result;
 		})
 		.catch((err) => {
 			data = err;
@@ -34,7 +34,7 @@ export const getPeople = async (id = "", name = "") => {
 
 export const getPlanet = async (id: string) => {
 	let people = await getPeople(id);
-	let data = await getAxios(people.result.properties.homeworld);
+	let data = await getAxios(people.properties.homeworld);
 	return data;
 };
 
@@ -47,6 +47,6 @@ export const getFilm = async () => {
 export const getFilmByName = async (name: string) => {
 	let data = {};
 	let films = await getFilm();
-	data = films.result;
+	data = films;
 	return data;
 };

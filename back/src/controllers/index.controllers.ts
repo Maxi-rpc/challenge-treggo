@@ -4,11 +4,23 @@ import { getCharacter } from "./character.controllers";
 import { getPlanet } from "./planet.controllers";
 import { getFilm } from "./film.controllers";
 
-export const indexControllers = {
-	login: login,
-	addFav: addFavorite,
-	delFav: delFavorite,
-	getChar: getCharacter,
-	getPlan: getPlanet,
-	getFilm: getFilm,
+export const user = {
+	Login: login,
+};
+
+export const favorite = {
+	Add: addFavorite,
+	Del: delFavorite,
+};
+
+export const character = {
+	Get: getCharacter,
+};
+
+export const planet = {
+	Get: getPlanet,
+};
+
+export const film = {
+	Get: getFilm,
 };

@@ -3,8 +3,8 @@ import { Router } from "express";
 const router: Router = Router();
 
 // controller
-import { indexControllers } from "../controllers/index.controllers";
+import { character } from "../controllers/index.controllers";
 
-router.get("/", indexControllers.getChar);
+router.get("/", character.Get);
 
 export default router;

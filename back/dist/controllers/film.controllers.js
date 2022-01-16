@@ -12,8 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getFilm = void 0;
 const index_services_1 = require("../services/index.services");
 const getFilm = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    //let { character } = req.query;
-    let data = yield index_services_1.API_SWAPI.getFilm();
+    let { character } = req.query;
+    let data = yield index_services_1.API_SWAPI.getFilmByName(character);
     res.json(data);
 });
 exports.getFilm = getFilm;

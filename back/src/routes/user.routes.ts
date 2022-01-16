@@ -3,8 +3,8 @@ import { Router } from "express";
 const router: Router = Router();
 
 // controller
-import { indexControllers } from "../controllers/index.controllers";
+import { user } from "../controllers/index.controllers";
 
-router.post("/", indexControllers.login);
+router.post("/", user.Login);
 
 export default router;

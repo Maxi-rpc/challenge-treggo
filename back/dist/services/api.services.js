@@ -23,7 +23,7 @@ const getAxios = (url) => __awaiter(void 0, void 0, void 0, function* () {
     yield axios_1.default
         .get(url)
         .then((resp) => {
-        data = resp.data;
+        data = resp.data.result;
     })
         .catch((err) => {
         data = err;
@@ -45,7 +45,7 @@ const getPeople = (id = "", name = "") => __awaiter(void 0, void 0, void 0, func
 exports.getPeople = getPeople;
 const getPlanet = (id) => __awaiter(void 0, void 0, void 0, function* () {
     let people = yield (0, exports.getPeople)(id);
-    let data = yield getAxios(people.result.properties.homeworld);
+    let data = yield getAxios(people.properties.homeworld);
     return data;
 });
 exports.getPlanet = getPlanet;
@@ -58,7 +58,7 @@ exports.getFilm = getFilm;
 const getFilmByName = (name) => __awaiter(void 0, void 0, void 0, function* () {
     let data = {};
     let films = yield (0, exports.getFilm)();
-    data = films.result;
+    data = films;
     return data;
 });
 exports.getFilmByName = getFilmByName;

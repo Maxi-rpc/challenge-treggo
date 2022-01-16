@@ -3,9 +3,9 @@ import { Router } from "express";
 const router: Router = Router();
 
 // imp controller
-import { indexControllers } from "../controllers/index.controllers";
+import { favorite } from "../controllers/index.controllers";
 
-router.post("/", indexControllers.addFav);
-router.delete("/", indexControllers.delFav);
+router.post("/", favorite.Add);
+router.delete("/", favorite.Del);
 
 export default router;
